@@ -4,6 +4,7 @@ import EmpresaTable from './components/EmpresaTable';
 import EmpresaModal from './components/EmpresaModal';
 import Input from './components/Input';
 import Button from './components/Button';
+import Footer from './components/Footer';
 import useDebounce from './hooks/useDebounce';
 import { theme } from './theme/colors';
 
@@ -77,7 +78,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: theme.colors.background }}>
+    <div className="min-h-screen" style={{ backgroundColor: theme.colors.background, paddingBottom: '60px' }}>
       <div className="container mx-auto px-4 py-8">
         <div className="rounded-lg shadow-lg p-6" style={{ backgroundColor: theme.colors.surface }}>
           <div className="flex justify-between items-center mb-6">
@@ -131,6 +132,8 @@ function App() {
           onSave={handleSave}
         />
       )}
+
+      <Footer />
     </div>
   );
 }

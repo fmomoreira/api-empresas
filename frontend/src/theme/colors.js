@@ -72,6 +72,11 @@ export const theme = {
       focus: colors.primary[500],
       background: colors.white,
     },
+    footer: {
+      background: '#1e3a8a',
+      text: colors.white,
+      heart: '#ef4444',
+    },
   },
   spacing: {
     xs: '0.25rem',
