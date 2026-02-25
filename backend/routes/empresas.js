@@ -47,6 +47,12 @@ let nextId = 3;
  *   get:
  *     summary: Lista todas as empresas
  *     tags: [Empresas]
+ *     parameters:
+ *       - in: query
+ *         name: cnpj
+ *         schema:
+ *           type: string
+ *         description: Filtrar empresas por CNPJ (busca parcial)
  *     responses:
  *       200:
  *         description: Lista de empresas
@@ -58,7 +64,22 @@ let nextId = 3;
  *                 $ref: '#/components/schemas/Empresa'
  */
 router.get('/', (req, res) => {
-  res.json(empresas);
+  const { cnpj } = req.query;
+  
+  let resultado = empresas;
+  
+  if (cnpj) {
+    const cnpjLimpo = cnpj.replace(/[^\d]/g, '');
+    
+    if (cnpjLimpo.length > 0) {
+      resultado = empresas.filter(e => {
+        const empresaCnpjLimpo = e.cnpj.replace(/[^\d]/g, '');
+        return empresaCnpjLimpo.includes(cnpjLimpo);
+      });
+    }
+  }
+  
+  res.json(resultado);
 });
 
 /**

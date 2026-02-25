@@ -1,0 +1,2 @@
+Crie componente sempre que for possivel para reaproveitas em outras telas
+Crie template de cores e use as string para quando muder uam cor no template mudar apra todo o ssitema criando um designer system inteligente e reaproveitavel
